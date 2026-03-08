@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Irvin's Web Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: #f9f7f4;
+      color: #2d2d2d;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e8e3dc;
+      padding: 18px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #2d2d2d;
+      letter-spacing: -0.3px;
+    }
+
+    header h1 span {
+      color: #e07b54;
+    }
+
+    nav a {
+      color: #777;
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #e07b54;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      background-color: #f9f7f4;
+      padding: 80px 48px 70px;
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .hero-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #e07b54;
+      flex-shrink: 0;
+      background-color: #e8e3dc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+    }
+
+    .hero-photo-placeholder {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid #e07b54;
+      background-color: #ede8e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 56px;
+    }
+
+    .hero-text h2 {
+      font-family: 'Lora', serif;
+      font-size: 42px;
+      font-weight: 600;
+      color: #2d2d2d;
+      line-height: 1.2;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+      border: none;
+    }
+
+    .hero-text h2 span {
+      color: #e07b54;
+    }
+
+    .hero-tagline {
+      font-size: 16px;
+      color: #888;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #555;
+      max-width: 560px;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 60px 48px;
+    }
+
+    section h2 {
+      font-family: 'Lora', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #2d2d2d;
+      margin-bottom: 28px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e8e3dc;
+      letter-spacing: -0.3px;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background-color: #ffffff;
+    }
+
+    .about-text p {
+      font-size: 15px;
+      line-height: 1.85;
+      color: #555;
+      margin-bottom: 14px;
+      max-width: 740px;
+    }
+
+    .about-text p strong {
+      color: #2d2d2d;
+      font-weight: 700;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      background-color: #f9f7f4;
+      border: 1px solid #e0d9d0;
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 13px;
+      color: #666;
+      font-weight: 600;
+    }
+
+    /* ── HOBBIES ── */
+    #hobbies {
+      background-color: #f9f7f4;
+    }
+
+    .hobby-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      list-style: none;
+    }
+
+    .hobby-grid li {
+      background-color: #ffffff;
+      border: 1px solid #e8e3dc;
+      border-radius: 14px;
+      padding: 22px 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .hobby-grid li:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+    }
+
+    .hobby-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .hobby-grid li h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #2d2d2d;
+      margin-bottom: 8px;
+    }
+
+    .hobby-grid li p {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: #777;
+    }
+
+    /* ── FUN FACT ── */
+    #funfact {
+      background-color: #2d2d2d;
+      text-align: center;
+    }
+
+    #funfact h2 {
+      font-family: 'Lora', serif;
+      color: #f9f7f4;
+      border-bottom-color: #444;
+      display: inline-block;
+    }
+
+    #fact-box {
+      margin: 24px auto 0;
+      max-width: 580px;
+      background-color: #383838;
+      border: 1px solid #4a4a4a;
+      border-radius: 14px;
+      padding: 28px 32px;
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #fact-text {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #d4cfc7;
+    }
+
+    #fact-btn {
+      margin-top: 20px;
+      padding: 12px 32px;
+      background-color: #e07b54;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.15s;
+    }
+
+    #fact-btn:hover {
+      background-color: #cc6840;
+      transform: translateY(-2px);
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background-color: #ffffff;
+    }
+
+    .contact-intro {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.75;
+      margin-bottom: 28px;
+      max-width: 580px;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 480px;
+    }
+
+    .contact-list li a {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: #2d2d2d;
+      background-color: #f9f7f4;
+      border: 1px solid #e8e3dc;
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .contact-list li a:hover {
+      border-color: #e07b54;
+      transform: translateX(4px);
+    }
+
+    .contact-icon {
+      font-size: 20px;
+      width: 32px;
+      text-align: center;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background-color: #f9f7f4;
+      border-top: 1px solid #e8e3dc;
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    footer span {
+      color: #e07b54;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      header {
+        padding: 16px 20px;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      nav a {
+        margin: 0 10px;
+      }
+
+      #hero {
+        padding: 48px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-text h2 {
+        font-size: 32px;
+      }
+
+      section {
+        padding: 44px 20px;
+      }
+
+      .hobby-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Irvin<span>.</span></h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#hobbies">Hobbies</a>
+      <a href="#funfact">Fun Fact</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero">
+    <img src="profile.jpg" alt="Photo of Irvin" class="hero-photo-placeholder" style="object-fit: cover;">
+    <div class="hero-text">
+      <h2>Hi, I'm <span>Irvin</span>.</h2>
+      <p class="hero-tagline">Engineer · Data Analyst · Grad Student</p>
+      <p>
+        Welcome to my personal web profile! I built this as part of my first web development class.
+        I am a graduate student at the University of the Philippines with a background in electrical
+        engineering, and a growing passion for data and technology.
+      </p>
+    </div>
+  </section>
+
+  <!-- About Me -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-text">
+      <p>
+        My name is <strong>Irvin</strong> and I am currently pursuing a postgraduate degree in
+        Computer Science at the <strong>University of the Philippines</strong>. Before this, I
+        completed my Bachelor of Science in Electrical Engineering at the
+        <strong>University of Santo Tomas</strong> and passed the board exam to become a licensed
+        <strong>Registered Electrical Engineer</strong>.
+      </p>
+      <p>
+        My career began in engineering and construction, but over time I found myself drawn to
+        data — how it can tell a story, reveal patterns, and support smarter decisions. That curiosity
+        led me to shift into data analytics, where I have been growing ever since.
+      </p>
+      <p>
+        Outside of work and school, I enjoy reading philosophy, staying fit, and spending time with
+        my dogs. This website is my very first HTML project and I am proud of how far it has come!
+      </p>
+      <div class="tag-row">
+        <span class="tag">Electrical Engineering</span>
+        <span class="tag">Data Analytics</span>
+        <span class="tag">University of the Philippines</span>
+        <span class="tag">University of Santo Tomas</span>
+        <span class="tag">Philippines</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hobbies & Interests -->
+  <section id="hobbies">
+    <h2>Hobbies &amp; Interests</h2>
+    <ul class="hobby-grid">
+      <li>
+        <span class="hobby-icon">📚</span>
+        <h3>Reading Philosophy</h3>
+        <p>
+          I enjoy reading philosophical texts at a slow, thoughtful pace. My interests span
+          Stoicism, Taoism, and existentialism. I believe taking time to truly reflect on what
+          you read makes all the difference.
+        </p>
+      </li>
+      <li>
+        <span class="hobby-icon">🐕</span>
+        <h3>My Dogs</h3>
+        <p>
+          I have two dogs — a Jack Russell Terrier and a standard Poodle. They are complete
+          opposites in energy and personality, but both are a big part of my daily life.
+        </p>
+      </li>
+      <li>
+        <span class="hobby-icon">🏋️</span>
+        <h3>Fitness</h3>
+        <p>
+          I am intentional about staying active and maintaining a consistent morning routine.
+          Regular exercise helps me stay focused and energized throughout the day.
+        </p>
+      </li>
+      <li>
+        <span class="hobby-icon">🚗</span>
+        <h3>Driving</h3>
+        <p>
+          Long drives are one of my favorite ways to unwind. I usually pair them with a good
+          podcast or audiobook. It is one of the few times I can think without any distractions.
+        </p>
+      </li>
+      <li>
+        <span class="hobby-icon">📊</span>
+        <h3>Data Analytics</h3>
+        <p>
+          Beyond my engineering roots, I have a genuine passion for working with data. I enjoy
+          the process of transforming raw numbers into meaningful insights that can guide
+          real decisions.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Fun Fact -->
+  <section id="funfact">
+    <h2>Fun Fact About Me</h2>
+    <div id="fact-box">
+      <p id="fact-text">Click the button below to learn something about me!</p>
+    </div>
+    <br>
+    <button id="fact-btn" onclick="showFact()">Show a Fun Fact</button>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Info</h2>
+    <p class="contact-intro">
+      Feel free to reach out! Whether it is about school, data, or just to say hello —
+      I am always happy to connect.
+    </p>
+    <ul class="contact-list">
+      <li>
+        <a href="mailto:irvincabal@gmail.com">
+          <span class="contact-icon">📧</span>
+          irvincabal@gmail.com
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="contact-icon">💼</span>
+          linkedin.com/in/irvincabal
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="contact-icon">🐙</span>
+          github.com/irvincabal
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="contact-icon">📍</span>
+          Paranaque, Philippines
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 <span>Irvin</span> &nbsp;·&nbsp; CMSC 207 Mini-Project</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    var facts = [
+      "I started out as a field engineer before finding my way into data analytics.",
+      "I am a licensed Registered Electrical Engineer here in the Philippines.",
+      "I have two dogs with totally opposite personalities — a Jack Russell Terrier and a Poodle!",
+      "I like reading philosophy one section at a time so I can really absorb what I am reading.",
+      "I got my engineering degree from the University of Santo Tomas.",
+      "Long drives are one of my favorite ways to think and decompress.",
+      "I am currently studying Computer Science at the University of the Philippines.",
+      "I am getting married in April 2027!"
+    ];
+
+    var lastIndex = -1;
+
+    function showFact() {
+      var index;
+
+      do {
+        index = Math.floor(Math.random() * facts.length);
+      } while (index === lastIndex);
+
+      lastIndex = index;
+
+      document.getElementById("fact-text").textContent = facts[index];
+      document.getElementById("fact-btn").textContent = "Show Another Fact";
+    }
+  </script>
+
+</body>
+</html>
